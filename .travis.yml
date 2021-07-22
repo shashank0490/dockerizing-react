@@ -23,3 +23,15 @@ after_success:
   - docker push shashank021/multi-server
   - docker push shashank021/multi-worker 
 
+deploy:
+  environment: elasticbeanstalk
+  region: 'us-east-1'
+  app: multi-docker
+  env: Multidocker-env
+  bucket_name: elasticbeanstalk-us-east-1-526790442740
+  bucket_path: multi-docker
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  
